@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b6g4l5ri8d6tm"]
+
+[ext_resource type="Texture2D" uid="uid://bo5apiprxme7m" path="res://360_F_114471205_0O1mMyKE100dWY4kqoDKBNYJDto53kkt.jpg" id="1_v6p8y"]
+
+[node name="TitleScreen" type="Node2D" unique_id=1114929145]
+
+[node name="Background" type="TextureRect" parent="." unique_id=1208495223]
+offset_left = -3.0
+offset_right = 717.0
+offset_bottom = 415.0
+scale = Vector2(1.6041224, 1.5669887)
+texture = ExtResource("1_v6p8y")
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1567472338]
+clip_contents = false
+offset_left = 282.0
+offset_top = 179.0
+offset_right = 894.0
+offset_bottom = 336.0
+theme_override_constants/outline_size = 40
+theme_override_font_sizes/normal_font_size = 108
+text = "TurboVerse"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=207332943]
+offset_left = 500.0
+offset_top = 322.0
+offset_right = 649.0
+offset_bottom = 519.0
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=217891603]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Start Game"
+
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=986771499]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Settings"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=486394023]
+layout_mode = 2
+theme_override_constants/outline_size = 14
+theme_override_font_sizes/font_size = 26
+text = "Quit"
