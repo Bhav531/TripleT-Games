@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bx1kbwh1qtn1k"]
+
+[ext_resource type="Texture2D" uid="uid://bo5apiprxme7m" path="res://360_F_114471205_0O1mMyKE100dWY4kqoDKBNYJDto53kkt.jpg" id="1_122hy"]
+[ext_resource type="Script" uid="uid://d03sn5f078500" path="res://scenes/winner_scene.gd" id="1_psp43"]
+
+[node name="winner_scene" type="Node2D" unique_id=1476307206]
+script = ExtResource("1_psp43")
+
+[node name="winner_background" type="TextureRect" parent="." unique_id=1703246017]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_122hy")
+
+[node name="winner_message" type="RichTextLabel" parent="." unique_id=1595171456]
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 866.0
+offset_bottom = 265.0
+theme_override_colors/default_color = Color(0.9561115, 0.46374875, 0, 1)
+theme_override_colors/table_odd_row_bg = Color(0.7279856, 0.7279857, 0.7279856, 0)
+theme_override_font_sizes/normal_font_size = 47
+text = "You did it!
+You successfully accomplished victory through all the levels!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1745404796]
+offset_left = 376.0
+offset_top = 297.0
+offset_right = 861.0
+offset_bottom = 433.0
+
+[node name="Retry" type="Button" parent="VBoxContainer" unique_id=1166051051]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Retry"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=940866235]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Quit(spreedrun again!?)"
+
+[connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

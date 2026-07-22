@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://b6ri852gtascf"]
+
+[ext_resource type="Script" uid="uid://q8hodolifqv8" path="res://scenes/minigame_2.gd" id="1_ksu6r"]
+[ext_resource type="Texture2D" uid="uid://dtsvnoas235ff" path="res://real bg.png" id="2_dqa6p"]
+[ext_resource type="Texture2D" uid="uid://cefcyld7nt43" path="res://icon_for_level-removebg-preview.png" id="3_c3ytc"]
+[ext_resource type="Script" uid="uid://cbfhs0jcvv44f" path="res://scenes/button_script.gd" id="4_eachr"]
+[ext_resource type="PackedScene" uid="uid://crqbpkvd3qggt" path="res://scenes/minigame_2_timer.tscn" id="5_dqa6p"]
+
+[node name="Minigame_2" type="Node2D" unique_id=1060244423]
+script = ExtResource("1_ksu6r")
+
+[node name="ScrollingBackground" type="Parallax2D" parent="." unique_id=374489938]
+repeat_size = Vector2(1000, 0)
+autoscroll = Vector2(100, 0)
+
+[node name="Background" type="TextureRect" parent="ScrollingBackground" unique_id=974103998]
+offset_right = 1250.0
+offset_bottom = 750.0
+scale = Vector2(0.91943586, 0.8606298)
+texture = ExtResource("2_dqa6p")
+
+[node name="Icon1" type="TextureButton" parent="." unique_id=788646742]
+offset_right = 500.0
+offset_bottom = 500.0
+scale = Vector2(0.26055396, 0.2753247)
+texture_normal = ExtResource("3_c3ytc")
+script = ExtResource("4_eachr")
+
+[node name="Icon2" type="TextureButton" parent="." unique_id=1058560135]
+offset_left = 193.0
+offset_top = 330.0
+offset_right = 693.0
+offset_bottom = 830.0
+scale = Vector2(0.23353559, 0.2575199)
+texture_normal = ExtResource("3_c3ytc")
+script = ExtResource("4_eachr")
+
+[node name="Icon3" type="TextureButton" parent="." unique_id=1994201300]
+offset_left = 802.00006
+offset_top = 119.0
+offset_right = 2023.2891
+offset_bottom = 691.49347
+scale = Vector2(0.2711808, 0.27107102)
+texture_normal = ExtResource("3_c3ytc")
+script = ExtResource("4_eachr")
+
+[node name="Icon4" type="TextureButton" parent="." unique_id=2001019105]
+offset_left = 424.99994
+offset_top = 157.0
+offset_right = 1646.2891
+offset_bottom = 729.49347
+scale = Vector2(0.2711808, 0.27107102)
+texture_normal = ExtResource("3_c3ytc")
+script = ExtResource("4_eachr")
+
+[node name="Icon5" type="TextureButton" parent="." unique_id=1707840100]
+offset_left = 790.0
+offset_top = 320.0
+offset_right = 2011.2891
+offset_bottom = 892.49347
+scale = Vector2(0.2711808, 0.27107102)
+texture_normal = ExtResource("3_c3ytc")
+script = ExtResource("4_eachr")
+
+[node name="Icon6" type="TextureButton" parent="." unique_id=257202284]
+offset_left = 627.0
+offset_top = 6.1035156e-05
+offset_right = 1848.2891
+offset_bottom = 572.4935
+scale = Vector2(0.2711808, 0.27107102)
+texture_normal = ExtResource("3_c3ytc")
+script = ExtResource("4_eachr")
+
+[node name="minigame_2_timer" parent="." unique_id=828454545 instance=ExtResource("5_dqa6p")]
+
+[connection signal="pressed" from="Icon1" to="." method="_on_icon_pressed"]
+[connection signal="pressed" from="Icon2" to="." method="_on_icon_pressed"]
+[connection signal="pressed" from="Icon3" to="." method="_on_icon_pressed"]
+[connection signal="pressed" from="Icon4" to="." method="_on_icon_pressed"]
+[connection signal="pressed" from="Icon5" to="." method="_on_icon_pressed"]
+[connection signal="pressed" from="Icon6" to="." method="_on_icon_pressed"]

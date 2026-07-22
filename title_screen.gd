@@ -1,24 +1,21 @@
 extends Node2D
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	# Ensure the game is fully unpaused whenever the title screen loads
+	get_tree().paused = false
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
-
+# Called when your Start button is clicked
 func _on_start_pressed() -> void:
-	get_tree().change_scene_to_file("res://level_scene.tscn")
+	# 1. Reset global stats back to fresh starting values
+	Global.lives = 5
+	Global.minigames_done = 0
 	
-	
+	# 2. Jump back into the start of your game loop
+	get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
+
+# Called when your Quit button is clicked
 func _on_quit_pressed() -> void:
 	get_tree().quit()
-	
-
-
-func _on_settings_pressed() -> void:
-	pass # Replace with function body.

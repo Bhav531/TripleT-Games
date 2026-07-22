@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cmwbb6hl811h6"]
+
+[ext_resource type="Script" uid="uid://ctkiekdfq065l" path="res://scenes/death_scene.gd" id="1_o2qfb"]
+[ext_resource type="Texture2D" uid="uid://bo5apiprxme7m" path="res://360_F_114471205_0O1mMyKE100dWY4kqoDKBNYJDto53kkt.jpg" id="2_vcjmr"]
+
+[node name="death_scene" type="Node2D" unique_id=1090626692]
+script = ExtResource("1_o2qfb")
+
+[node name="death_background" type="TextureRect" parent="." unique_id=1517200120]
+offset_right = 1149.0
+offset_bottom = 653.0
+texture = ExtResource("2_vcjmr")
+
+[node name="death_text" type="RichTextLabel" parent="." unique_id=1991977232]
+offset_right = 797.0
+offset_bottom = 318.0
+theme_override_colors/default_color = Color(1, 0.40169755, 0.3167821, 1)
+theme_override_font_sizes/normal_font_size = 57
+text = "Ooops!
+Your lives ran out, despite your valiant effort!!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1157787124]
+offset_left = 335.0
+offset_top = 298.0
+offset_right = 820.0
+offset_bottom = 434.0
+
+[node name="Retry" type="Button" parent="VBoxContainer" unique_id=2045687615]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Retry"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=10038255]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Quit(spreedrun again!?)"
+
+[connection signal="pressed" from="VBoxContainer/Retry" to="." method="_on_retry_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

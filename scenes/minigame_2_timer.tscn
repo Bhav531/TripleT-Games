@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://crqbpkvd3qggt"]
+
+[ext_resource type="Script" uid="uid://rsandr50a3j4" path="res://scenes/minigame_2_timer.gd" id="1_vtbr2"]
+
+[node name="minigame_2_timer" type="Node2D" unique_id=828454545]
+script = ExtResource("1_vtbr2")
+
+[node name="timer_label" type="Label" parent="." unique_id=2117250672]
+offset_left = 25.0
+offset_top = 20.0
+offset_right = 250.0
+offset_bottom = 177.0
+theme_override_font_sizes/font_size = 42
