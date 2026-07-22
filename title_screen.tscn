@@ -35,12 +35,6 @@ theme_override_constants/outline_size = 14
 theme_override_font_sizes/font_size = 26
 text = "Start Game"
 
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=986771499]
-layout_mode = 2
-theme_override_constants/outline_size = 14
-theme_override_font_sizes/font_size = 26
-text = "Settings"
-
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=486394023]
 layout_mode = 2
 theme_override_constants/outline_size = 14
@@ -48,5 +42,4 @@ theme_override_font_sizes/font_size = 26
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
