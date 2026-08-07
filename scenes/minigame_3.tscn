@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://cbd5ptfudny1k"]
 
-[ext_resource type="Texture2D" uid="uid://vnixxlvycbvu" path="res://Bg.png" id="1_t3ksd"]
+[ext_resource type="Texture2D" uid="uid://devonm6s7ljde" path="res://bbg.png" id="1_rguwe"]
+[ext_resource type="Script" uid="uid://b7ybp4u37gfe2" path="res://scenes/minigame_3.gd" id="2_yiing"]
+[ext_resource type="FontFile" uid="uid://t85vb7jxac7l" path="res://pixel_font.ttf" id="3_nuwo7"]
+[ext_resource type="Script" uid="uid://b6mr6x1r2ye0k" path="res://scenes/minigame3_player.gd" id="3_yiing"]
+[ext_resource type="Script" uid="uid://c7ivx0q8u2bbr" path="res://scenes/ball.gd" id="4_nuwo7"]
+[ext_resource type="Script" uid="uid://bx85f20fhbl4k" path="res://scenes/cpu.gd" id="4_rguwe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4a8"]
 size = Vector2(20, 120)
@@ -21,11 +26,13 @@ size = Vector2(64, 648.00024)
 texture_filter = 1
 position = Vector2(0, 9.536743e-07)
 scale = Vector2(1, 0.98765427)
-texture = ExtResource("1_t3ksd")
+texture = ExtResource("1_rguwe")
 centered = false
+script = ExtResource("2_yiing")
 
 [node name="Player" type="StaticBody2D" parent="." unique_id=1942537106]
 position = Vector2(50, 324)
+script = ExtResource("3_yiing")
 
 [node name="ColorRect" type="ColorRect" parent="Player" unique_id=832661731]
 anchors_preset = 4
@@ -43,6 +50,7 @@ shape = SubResource("RectangleShape2D_kr4a8")
 
 [node name="CPU" type="StaticBody2D" parent="." unique_id=139633597]
 position = Vector2(1082, 324)
+script = ExtResource("4_rguwe")
 
 [node name="ColorRect" type="ColorRect" parent="CPU" unique_id=253406076]
 anchors_preset = 4
@@ -60,6 +68,8 @@ shape = SubResource("RectangleShape2D_kr4a8")
 
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=917371574]
 position = Vector2(576, 324)
+collision_mask = 3
+script = ExtResource("4_nuwo7")
 
 [node name="ColorRect" type="ColorRect" parent="Ball" unique_id=262239801]
 anchors_preset = 8
@@ -78,6 +88,7 @@ grow_vertical = 2
 shape = SubResource("RectangleShape2D_f45bh")
 
 [node name="Borders" type="StaticBody2D" parent="." unique_id=909295963]
+collision_layer = 3
 
 [node name="Top" type="CollisionShape2D" parent="Borders" unique_id=1726143144]
 position = Vector2(576, -35.000008)
@@ -102,3 +113,52 @@ shape = SubResource("RectangleShape2D_qn2p0")
 position = Vector2(1184, 324.00003)
 scale = Vector2(0.9999997, 0.9999997)
 shape = SubResource("RectangleShape2D_qn2p0")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=744183383]
+
+[node name="PlayerScore" type="Label" parent="HUD" unique_id=1111399071]
+offset_left = 456.0
+offset_top = 5.0
+offset_right = 506.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_nuwo7")
+theme_override_font_sizes/font_size = 50
+text = "0
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HUD/PlayerScore" unique_id=548113755]
+layout_mode = 0
+offset_left = -32.0
+offset_top = 59.0
+offset_right = 83.0
+offset_bottom = 82.0
+text = "Triple-T's Slave"
+
+[node name="CPUScore" type="Label" parent="HUD" unique_id=1491360342]
+offset_left = 648.0
+offset_top = 5.0
+offset_right = 698.0
+offset_bottom = 55.0
+theme_override_fonts/font = ExtResource("3_nuwo7")
+theme_override_font_sizes/font_size = 50
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="HUD/CPUScore" unique_id=386457525]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 59.0
+offset_right = 51.0
+offset_bottom = 82.0
+text = "Triple-T"
+
+[node name="BallTimer" type="Timer" parent="." unique_id=969756159]
+one_shot = true
+autostart = true
+
+[connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
+[connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
+[connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]
