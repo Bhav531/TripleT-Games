@@ -1,27 +1,27 @@
 [gd_scene format=3 uid="uid://birrb3mpjxj0h"]
 
 [ext_resource type="Script" uid="uid://wegjlyh21dse" path="res://title_screen.gd" id="1_ak2if"]
-[ext_resource type="Texture2D" uid="uid://bo5apiprxme7m" path="res://360_F_114471205_0O1mMyKE100dWY4kqoDKBNYJDto53kkt.jpg" id="1_v6p8y"]
+[ext_resource type="Texture2D" uid="uid://paw4cmwm6nt7" path="res://final_t3.png" id="2_ak2if"]
 
 [node name="TitleScreen" type="Node2D" unique_id=1114929145]
 script = ExtResource("1_ak2if")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1208495223]
 offset_left = -3.0
-offset_right = 717.0
-offset_bottom = 415.0
-scale = Vector2(1.6041224, 1.5669887)
-texture = ExtResource("1_v6p8y")
+offset_right = 1026.0
+offset_bottom = 546.0
+scale = Vector2(1.1227324, 1.1919844)
+texture = ExtResource("2_ak2if")
 
 [node name="Title" type="RichTextLabel" parent="." unique_id=1567472338]
 clip_contents = false
-offset_left = 282.0
-offset_top = 179.0
-offset_right = 894.0
-offset_bottom = 336.0
+offset_left = 290.0
+offset_top = 196.0
+offset_right = 935.0
+offset_bottom = 362.0
 theme_override_constants/outline_size = 40
-theme_override_font_sizes/normal_font_size = 108
-text = "TurboVerse"
+theme_override_font_sizes/normal_font_size = 85
+text = "Triple-T Games"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=207332943]
 offset_left = 500.0

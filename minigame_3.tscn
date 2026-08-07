@@ -1,0 +1,104 @@
+[gd_scene format=3 uid="uid://cbd5ptfudny1k"]
+
+[ext_resource type="Texture2D" uid="uid://vnixxlvycbvu" path="res://Bg.png" id="1_t3ksd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4a8"]
+size = Vector2(20, 120)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f45bh"]
+size = Vector2(10, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg0oq"]
+size = Vector2(1152, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yoaj"]
+size = Vector2(1151.9998, 56.523254)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn2p0"]
+size = Vector2(64, 648.00024)
+
+[node name="Main" type="Sprite2D" unique_id=997738773]
+texture_filter = 1
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(1, 0.98765427)
+texture = ExtResource("1_t3ksd")
+centered = false
+
+[node name="Player" type="StaticBody2D" parent="." unique_id=1942537106]
+position = Vector2(50, 324)
+
+[node name="ColorRect" type="ColorRect" parent="Player" unique_id=832661731]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = 60.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=884471455]
+position = Vector2(10, 0)
+shape = SubResource("RectangleShape2D_kr4a8")
+
+[node name="CPU" type="StaticBody2D" parent="." unique_id=139633597]
+position = Vector2(1082, 324)
+
+[node name="ColorRect" type="ColorRect" parent="CPU" unique_id=253406076]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -60.0
+offset_right = 20.0
+offset_bottom = 60.0
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPU" unique_id=1673188002]
+position = Vector2(10, 0)
+shape = SubResource("RectangleShape2D_kr4a8")
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=917371574]
+position = Vector2(576, 324)
+
+[node name="ColorRect" type="ColorRect" parent="Ball" unique_id=262239801]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=606336732]
+shape = SubResource("RectangleShape2D_f45bh")
+
+[node name="Borders" type="StaticBody2D" parent="." unique_id=909295963]
+
+[node name="Top" type="CollisionShape2D" parent="Borders" unique_id=1726143144]
+position = Vector2(576, -35.000008)
+scale = Vector2(1, 1.0000001)
+shape = SubResource("RectangleShape2D_pg0oq")
+
+[node name="Bottom" type="CollisionShape2D" parent="Borders" unique_id=235938516]
+position = Vector2(575.9997, 676.2616)
+scale = Vector2(0.9999998, 1.0000006)
+shape = SubResource("RectangleShape2D_6yoaj")
+
+[node name="ScoreLeft" type="Area2D" parent="." unique_id=1827432527]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreLeft" unique_id=1788645096]
+position = Vector2(-31.999983, 323.99994)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_qn2p0")
+
+[node name="ScoreRight" type="Area2D" parent="." unique_id=272060028]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreRight" unique_id=240080639]
+position = Vector2(1184, 324.00003)
+scale = Vector2(0.9999997, 0.9999997)
+shape = SubResource("RectangleShape2D_qn2p0")

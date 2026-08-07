@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dr3e5ve3bahat"]
 
 [ext_resource type="Script" uid="uid://bbscr7la8gwm7" path="res://scenes/minigame_1.gd" id="1_fa05o"]
-[ext_resource type="Texture2D" uid="uid://dtsvnoas235ff" path="res://real bg.png" id="1_og05i"]
+[ext_resource type="Texture2D" uid="uid://paw4cmwm6nt7" path="res://final_t3.png" id="2_j1cg4"]
 [ext_resource type="PackedScene" uid="uid://c5kkjhapekcuu" path="res://scenes/player.tscn" id="2_og05i"]
-[ext_resource type="Texture2D" uid="uid://cefcyld7nt43" path="res://icon_for_level-removebg-preview.png" id="3_lmjug"]
 [ext_resource type="Script" uid="uid://b65fop7xsis0o" path="res://scenes/icon_script.gd" id="3_v5ebm"]
+[ext_resource type="Texture2D" uid="uid://bqvm0lsp51phm" path="res://tung tung tokens real.png" id="5_j1cg4"]
 [ext_resource type="PackedScene" uid="uid://cl5laddl87wx2" path="res://scenes/timer_scene.tscn" id="6_j1cg4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f45bh"]
@@ -64,7 +64,7 @@ autoscroll = Vector2(100, 0)
 offset_right = 1250.0
 offset_bottom = 750.0
 scale = Vector2(0.91943586, 0.8606298)
-texture = ExtResource("1_og05i")
+texture = ExtResource("2_j1cg4")
 
 [node name="Platform1" type="StaticBody2D" parent="." unique_id=2063317731]
 
@@ -135,7 +135,7 @@ offset_top = 187.34514
 offset_right = 2375.5952
 offset_bottom = 2410.228
 scale = Vector2(0.1647686, 0.16013235)
-texture = ExtResource("3_lmjug")
+texture = ExtResource("5_j1cg4")
 
 [node name="Area2D" type="Area2D" parent="icon1" unique_id=216542440]
 
@@ -159,7 +159,7 @@ offset_top = -605.7489
 offset_right = 3783.6304
 offset_bottom = 1617.1339
 scale = Vector2(0.1647686, 0.16013235)
-texture = ExtResource("3_lmjug")
+texture = ExtResource("5_j1cg4")
 
 [node name="Area2D" type="Area2D" parent="icon2" unique_id=933700365]
 
@@ -183,7 +183,7 @@ offset_top = -1161.5392
 offset_right = 6320.5215
 offset_bottom = 1061.3436
 scale = Vector2(0.1647686, 0.16013235)
-texture = ExtResource("3_lmjug")
+texture = ExtResource("5_j1cg4")
 
 [node name="Area2D" type="Area2D" parent="icon3" unique_id=182324126]
 

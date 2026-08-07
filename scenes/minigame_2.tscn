@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b6ri852gtascf"]
 
 [ext_resource type="Script" uid="uid://q8hodolifqv8" path="res://scenes/minigame_2.gd" id="1_ksu6r"]
-[ext_resource type="Texture2D" uid="uid://dtsvnoas235ff" path="res://real bg.png" id="2_dqa6p"]
-[ext_resource type="Texture2D" uid="uid://cefcyld7nt43" path="res://icon_for_level-removebg-preview.png" id="3_c3ytc"]
+[ext_resource type="Texture2D" uid="uid://paw4cmwm6nt7" path="res://final_t3.png" id="2_dqa6p"]
+[ext_resource type="Texture2D" uid="uid://bqvm0lsp51phm" path="res://tung tung tokens real.png" id="3_c3ytc"]
 [ext_resource type="Script" uid="uid://cbfhs0jcvv44f" path="res://scenes/button_script.gd" id="4_eachr"]
 [ext_resource type="PackedScene" uid="uid://crqbpkvd3qggt" path="res://scenes/minigame_2_timer.tscn" id="5_dqa6p"]
 
@@ -20,54 +20,56 @@ scale = Vector2(0.91943586, 0.8606298)
 texture = ExtResource("2_dqa6p")
 
 [node name="Icon1" type="TextureButton" parent="." unique_id=788646742]
-offset_right = 500.0
-offset_bottom = 500.0
-scale = Vector2(0.26055396, 0.2753247)
+offset_left = 55.0
+offset_top = 48.0
+offset_right = 422.0
+offset_bottom = 436.0
+scale = Vector2(0.21477504, 0.22424813)
 texture_normal = ExtResource("3_c3ytc")
 script = ExtResource("4_eachr")
 
-[node name="Icon2" type="TextureButton" parent="." unique_id=1058560135]
-offset_left = 193.0
-offset_top = 330.0
-offset_right = 693.0
-offset_bottom = 830.0
-scale = Vector2(0.23353559, 0.2575199)
+[node name="Icon2" type="TextureButton" parent="." unique_id=682994834]
+offset_left = 143.0
+offset_top = 533.00006
+offset_right = 510.0
+offset_bottom = 921.00006
+scale = Vector2(0.21477504, 0.22424813)
 texture_normal = ExtResource("3_c3ytc")
 script = ExtResource("4_eachr")
 
-[node name="Icon3" type="TextureButton" parent="." unique_id=1994201300]
-offset_left = 802.00006
-offset_top = 119.0
-offset_right = 2023.2891
-offset_bottom = 691.49347
-scale = Vector2(0.2711808, 0.27107102)
+[node name="Icon3" type="TextureButton" parent="." unique_id=659431601]
+offset_left = 880.00006
+offset_top = 36.0
+offset_right = 1247.0
+offset_bottom = 424.0
+scale = Vector2(0.21477504, 0.22424813)
 texture_normal = ExtResource("3_c3ytc")
 script = ExtResource("4_eachr")
 
-[node name="Icon4" type="TextureButton" parent="." unique_id=2001019105]
-offset_left = 424.99994
-offset_top = 157.0
-offset_right = 1646.2891
-offset_bottom = 729.49347
-scale = Vector2(0.2711808, 0.27107102)
+[node name="Icon4" type="TextureButton" parent="." unique_id=1949806209]
+offset_left = 568.0
+offset_top = 412.0
+offset_right = 935.0
+offset_bottom = 800.0
+scale = Vector2(0.21477504, 0.22424813)
 texture_normal = ExtResource("3_c3ytc")
 script = ExtResource("4_eachr")
 
-[node name="Icon5" type="TextureButton" parent="." unique_id=1707840100]
-offset_left = 790.0
-offset_top = 320.0
-offset_right = 2011.2891
-offset_bottom = 892.49347
-scale = Vector2(0.2711808, 0.27107102)
+[node name="Icon6" type="TextureButton" parent="." unique_id=81432302]
+offset_left = 382.0
+offset_top = 155.00002
+offset_right = 749.0
+offset_bottom = 543.0
+scale = Vector2(0.21477504, 0.22424813)
 texture_normal = ExtResource("3_c3ytc")
 script = ExtResource("4_eachr")
 
-[node name="Icon6" type="TextureButton" parent="." unique_id=257202284]
-offset_left = 627.0
-offset_top = 6.1035156e-05
-offset_right = 1848.2891
-offset_bottom = 572.4935
-scale = Vector2(0.2711808, 0.27107102)
+[node name="Icon5" type="TextureButton" parent="." unique_id=2080747286]
+offset_left = 902.0
+offset_top = 541.0
+offset_right = 1269.0
+offset_bottom = 929.0
+scale = Vector2(0.21477504, 0.22424813)
 texture_normal = ExtResource("3_c3ytc")
 script = ExtResource("4_eachr")
 
@@ -77,5 +79,5 @@ script = ExtResource("4_eachr")
 [connection signal="pressed" from="Icon2" to="." method="_on_icon_pressed"]
 [connection signal="pressed" from="Icon3" to="." method="_on_icon_pressed"]
 [connection signal="pressed" from="Icon4" to="." method="_on_icon_pressed"]
-[connection signal="pressed" from="Icon5" to="." method="_on_icon_pressed"]
 [connection signal="pressed" from="Icon6" to="." method="_on_icon_pressed"]
+[connection signal="pressed" from="Icon5" to="." method="_on_icon_pressed"]

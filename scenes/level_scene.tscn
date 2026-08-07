@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dn13xwy2e3603"]
 
-[ext_resource type="Texture2D" uid="uid://bo5apiprxme7m" path="res://360_F_114471205_0O1mMyKE100dWY4kqoDKBNYJDto53kkt.jpg" id="1_386oa"]
 [ext_resource type="Script" uid="uid://c550oquris6sh" path="res://scenes/timer_screen.gd" id="1_a74lg"]
-[ext_resource type="Texture2D" uid="uid://cefcyld7nt43" path="res://icon_for_level-removebg-preview.png" id="3_c8xsp"]
+[ext_resource type="Texture2D" uid="uid://paw4cmwm6nt7" path="res://final_t3.png" id="2_a74lg"]
+[ext_resource type="Texture2D" uid="uid://bqvm0lsp51phm" path="res://tung tung tokens real.png" id="3_a74lg"]
 
 [node name="TimerScreen" type="Node2D" unique_id=1046999373]
 script = ExtResource("1_a74lg")
@@ -10,34 +10,34 @@ script = ExtResource("1_a74lg")
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1747748359]
 offset_right = 1150.0
 offset_bottom = 644.0
-texture = ExtResource("1_386oa")
+texture = ExtResource("2_a74lg")
 
 [node name="IconHolder" type="HBoxContainer" parent="." unique_id=947057709]
-offset_left = 193.0
-offset_top = 180.0
-offset_right = 2709.0
-offset_bottom = 680.0
-scale = Vector2(0.2941684, 0.27902338)
+offset_left = 265.0
+offset_top = 181.00002
+offset_right = 2195.516
+offset_bottom = 677.4769
+scale = Vector2(0.32892758, 0.27393013)
 
 [node name="Icon" type="TextureRect" parent="IconHolder" unique_id=1280147749]
 layout_mode = 2
-texture = ExtResource("3_c8xsp")
+texture = ExtResource("3_a74lg")
 
 [node name="Icon2" type="TextureRect" parent="IconHolder" unique_id=1783192520]
 layout_mode = 2
-texture = ExtResource("3_c8xsp")
+texture = ExtResource("3_a74lg")
 
 [node name="Icon3" type="TextureRect" parent="IconHolder" unique_id=1336873052]
 layout_mode = 2
-texture = ExtResource("3_c8xsp")
+texture = ExtResource("3_a74lg")
 
 [node name="Icon4" type="TextureRect" parent="IconHolder" unique_id=2113584913]
 layout_mode = 2
-texture = ExtResource("3_c8xsp")
+texture = ExtResource("3_a74lg")
 
 [node name="Icon5" type="TextureRect" parent="IconHolder" unique_id=1481200514]
 layout_mode = 2
-texture = ExtResource("3_c8xsp")
+texture = ExtResource("3_a74lg")
 
 [node name="Level" type="RichTextLabel" parent="." unique_id=1376073150]
 offset_left = 502.0
