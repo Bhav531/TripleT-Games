@@ -13,7 +13,7 @@ var transitioning: bool = false
 func _ready() -> void:
 	update_hud()
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)
-	spawn_timer.start(4.0) 
+	spawn_timer.start(2.0) 
 
 func _on_spawn_timer_timeout() -> void:
 	if total_spawned >= 7:

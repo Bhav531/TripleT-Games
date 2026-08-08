@@ -15,14 +15,12 @@ var time: float = 0.0
 func _ready() -> void:
 	await start_countdown(5.0) 
 	
-	# Fallback if minigames_done is unassigned or 0
 	if Global.minigames_done < 1:
 		Global.minigames_done = 1
 	
-	if Global.minigames_done <= 3: 
+	if Global.minigames_done <= 4: 
 		var next_scene_path = "res://scenes/minigame_" + str(Global.minigames_done) + ".tscn"
 		
-		# Verifies the scene file actually exists before switching
 		if ResourceLoader.exists(next_scene_path):
 			get_tree().change_scene_to_file(next_scene_path)
 		else:

@@ -1,39 +1,32 @@
 extends Node2D
 
-var icon_collected = 0 # tracking how many icons collected
-var time_left: float = 6.7 # 6.7 second countdown for the minigame
-var transitioning: bool = false # Safety lock to stop multiple scene changes on the same frame
+var icon_collected: int = 0
+var time_left: float = 4.67
+var transitioning: bool = false
 
 func _ready() -> void:
-	pass 
+	pass
 
-func _process(delta: float) -> void: 
-	# --- 1. COUNTDOWN TIMER (Runs every frame) ---
+func _process(delta: float) -> void:
 	if time_left > 0 and not transitioning:
 		time_left -= delta
 	elif time_left <= 0 and not transitioning:
-		# --- 2. LOSE CONDITION (Time ran out) ---
-		transitioning = true # Lock it so this code only runs once!
-		Global.minigames_done -= 1 # go back a minigame index
-		Global.lives -= 1 # lose a life
+		transitioning = true
+		Global.lives -= 1
+		Global.minigames_done = 1
 		
-		# Check if lives are completely gone
 		if Global.lives <= 0:
-			get_tree().change_scene_to_file("res://scenes/death_scene.tscn")
+			call_deferred("_change_scene", "res://scenes/death_scene.tscn")
 		else:
-			# Otherwise, take them back to the intermission/level scene
-			get_tree().change_scene_to_file("res://scenes/level_scene.tscn")
+			call_deferred("_change_scene", "res://scenes/level_scene.tscn")
 
-	# --- 3. WIN CONDITION (Got the 3 icons!) ---
-	if icon_collected >= 3 and not transitioning: 
-		transitioning = true # Lock it so it doesn't trigger multiple times
-		Global.minigames_done = Global.minigames_done + 1
-		
-		if Global.minigames_done > 3: 
-			get_tree().change_scene_to_file("res://scenes/done_screen.tscn") 
-		else:
-			# Dynamically loads minigame_2, minigame_3, etc.!
-			get_tree().change_scene_to_file("res://scenes/minigame_" + str(Global.minigames_done) + ".tscn") 
+	if icon_collected >= 3 and not transitioning:
+		transitioning = true
+		Global.minigames_done = 2
+		call_deferred("_change_scene", "res://scenes/level_scene.tscn")
 
-func icon_collect() -> void: # function connected to your icon pickups
-	icon_collected = icon_collected + 1
+func icon_collect() -> void:
+	icon_collected += 1
+
+func _change_scene(target_path: String) -> void:
+	get_tree().change_scene_to_file(target_path)

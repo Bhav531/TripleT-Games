@@ -10,15 +10,14 @@ var game_started: bool = false
 @onready var timer_label: Label = $HUD/TimerLabel
 
 func _ready():
-	# 1. Force HUD scores to start at 0 - 0
+	$BallTimer.stop()
+	
 	score = [0, 0]
 	$HUD/CPUScore.text = "0"
 	$HUD/PlayerScore.text = "0"
 	
-	# 2. Reset ball position to center
 	$Ball.new_ball()
 	
-	# 3. Small delay so initial spawning collisions don't give immediate points
 	await get_tree().create_timer(0.2).timeout
 	game_started = true
 
@@ -28,7 +27,6 @@ func _process(delta: float) -> void:
 			time_left -= delta
 			timer_label.text = str(snapped(time_left, 0.1))
 		else:
-			# Player survived 20 seconds -> Win condition!
 			game_ended = true
 			time_left = 0.0
 			timer_label.text = "0.0"
@@ -45,13 +43,11 @@ func _on_score_left_body_entered(body):
 	score[1] += 1
 	$HUD/CPUScore.text = str(score[1])
 	
-	# LOSE CONDITION: CPU gets 1 point
 	if score[1] >= 1:
 		game_ended = true
 		Global.lives -= 1
-		Global.minigames_done = 3 # Retain level 3 so player retries Minigame 3
+		Global.minigames_done = 3
 		
-		# Safely change scenes outside the physics callback
 		if Global.lives <= 0:
 			call_deferred("_change_scene", "res://scenes/death_scene.tscn")
 		else:
@@ -72,11 +68,10 @@ func _on_timer_timeout() -> void:
 	game_ended = true
 	Global.minigames_done += 1
 	
-	if Global.minigames_done > 3: 
+	if Global.minigames_done > 4: 
 		call_deferred("_change_scene", "res://scenes/winner_scene.tscn") 
 	else:
 		call_deferred("_change_scene", "res://scenes/level_scene.tscn")
 
-# Helper function to perform scene transitions safely
 func _change_scene(target_path: String) -> void:
 	get_tree().change_scene_to_file(target_path)

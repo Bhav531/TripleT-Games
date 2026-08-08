@@ -130,9 +130,9 @@ vertical_alignment = 1
 
 [node name="Label" type="Label" parent="HUD/PlayerScore" unique_id=548113755]
 layout_mode = 0
-offset_left = -32.0
+offset_left = -48.0
 offset_top = 59.0
-offset_right = 83.0
+offset_right = 97.0
 offset_bottom = 82.0
 text = "Triple-T's Slave"
 
@@ -151,7 +151,7 @@ vertical_alignment = 1
 layout_mode = 0
 offset_left = -8.0
 offset_top = 59.0
-offset_right = 51.0
+offset_right = 67.0
 offset_bottom = 82.0
 text = "Triple-T"
 
@@ -160,6 +160,13 @@ offset_left = 528.0
 offset_top = 112.0
 offset_right = 624.0
 offset_bottom = 167.0
+
+[node name="Label" type="Label" parent="HUD" unique_id=1935189979]
+offset_left = 320.0
+offset_top = 87.0
+offset_right = 835.0
+offset_bottom = 115.0
+text = "Survive 20 seconds without      letting Triple-T get a point!"
 
 [node name="BallTimer" type="Timer" parent="." unique_id=969756159]
 one_shot = true

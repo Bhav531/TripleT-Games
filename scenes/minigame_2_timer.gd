@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var timer_label: Label = $timer_label
 
-var time_left: float = 7.0
+var time_left: float = 4.67
 var timer_running: bool = true
 
 func _process(delta: float) -> void:
