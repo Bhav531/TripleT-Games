@@ -13,17 +13,24 @@ extends Node2D
 var time: float = 0.0
 
 func _ready() -> void:
-	# Using the renamed function so it doesn't break Godot!
 	await start_countdown(5.0) 
 	
-	if Global.minigames_done < 3: 
-		Global.minigames_done = Global.minigames_done + 1 
-		get_tree().change_scene_to_file("res://scenes/minigame_" + str(Global.minigames_done) + ".tscn") 
-	else:
-		get_tree().change_scene_to_file("res://scenes/title_screen.tscn") 
+	# Fallback if minigames_done is unassigned or 0
+	if Global.minigames_done < 1:
+		Global.minigames_done = 1
 	
+	if Global.minigames_done <= 3: 
+		var next_scene_path = "res://scenes/minigame_" + str(Global.minigames_done) + ".tscn"
+		
+		# Verifies the scene file actually exists before switching
+		if ResourceLoader.exists(next_scene_path):
+			get_tree().change_scene_to_file(next_scene_path)
+		else:
+			print("ERROR: Scene file not found at path: ", next_scene_path)
+	else:
+		get_tree().change_scene_to_file("res://scenes/winner_scene.tscn") 
+
 func _process(delta: float) -> void: 
-	# Now using the new "icon" variables to hide them when you lose lives
 	match Global.lives: 
 		4:
 			icon.hide()
@@ -40,17 +47,16 @@ func _process(delta: float) -> void:
 			icon_3.hide()
 			icon_4.hide()
 		0:
-			icon_container.hide() # Hides the whole container if out of lives
+			icon_container.hide()
 	
 	timer.text = str(snapped(time, 0.1)) 
 	level.text = "Level " + str(Global.minigames_done) 
 
-# Renamed this from "Timer" to "start_countdown"
-# The cleaner, bug-free countdown function
 func start_countdown(start_time: float): 
 	time = start_time 
 	
 	while time > 0.0: 
-		# We put the timer directly in here instead of using a separate wait() function
 		await get_tree().create_timer(0.1).timeout 
-		time -= 0.1
+		time = max(0.0, time - 0.1)
+	
+	time = 0.0

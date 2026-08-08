@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://drohwiatbp5i5"]
+
+[ext_resource type="Script" uid="uid://dejgdwfjg8dlv" path="res://scenes/minigame_4.gd" id="1_3n4v2"]
+[ext_resource type="Texture2D" uid="uid://paw4cmwm6nt7" path="res://final_t3.png" id="2_ewl5d"]
+[ext_resource type="Script" uid="uid://bbj2kkpctr78q" path="res://scenes/minigame_4_player.gd" id="2_mxhla"]
+[ext_resource type="Texture2D" uid="uid://fm3k3xmehg5c" path="res://player.png" id="3_ewl5d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4a8"]
+size = Vector2(42, 96.125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f45bh"]
+size = Vector2(41, 96)
+
+[node name="Minigame_4" type="Node2D" unique_id=157934280]
+script = ExtResource("1_3n4v2")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1339914208]
+position = Vector2(576, 324)
+scale = Vector2(1.1195335, 1.1868131)
+texture = ExtResource("2_ewl5d")
+
+[node name="SpawnTimer" type="Timer" parent="." unique_id=696737541]
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=468055711]
+offset_left = 472.0
+offset_top = 16.0
+offset_right = 736.0
+offset_bottom = 128.0
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=576266953]
+script = ExtResource("2_mxhla")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player" unique_id=1215752805]
+position = Vector2(40, 584.00006)
+scale = Vector2(0.19090909, 0.18904598)
+texture = ExtResource("3_ewl5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=1808520249]
+position = Vector2(35, 583.9375)
+shape = SubResource("RectangleShape2D_kr4a8")
+
+[node name="PlayerArea" type="Area2D" parent="Player" unique_id=573918436 groups=["player"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea" unique_id=651740211]
+position = Vector2(35.5, 584)
+shape = SubResource("RectangleShape2D_f45bh")

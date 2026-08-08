@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ddw1djovl11y5"]
+
+[ext_resource type="Script" uid="uid://dky73jxrb2awv" path="res://scenes/falling_icon.gd" id="1_m0v7x"]
+[ext_resource type="Texture2D" uid="uid://bqvm0lsp51phm" path="res://tung tung tokens real.png" id="2_m0v7x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4a8"]
+size = Vector2(72, 67.8728)
+
+[node name="FallingIcon" type="Area2D" unique_id=1858805513]
+script = ExtResource("1_m0v7x")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=305555962]
+position = Vector2(50.520454, 57.9364)
+scale = Vector2(0.18812238, 0.17492987)
+texture = ExtResource("2_m0v7x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1068777630]
+position = Vector2(49.0409, 57.9364)
+shape = SubResource("RectangleShape2D_kr4a8")
