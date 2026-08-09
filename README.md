@@ -4,7 +4,7 @@ A fast-paced, Tung Tung Sahur- themed, WarioWare-style 2D minigame rush where pl
 <img width="1152" height="642" alt="image" src="https://github.com/user-attachments/assets/711831a7-3d6d-4eb6-8f5c-580b0365f6e2" />
 
 
-**[Play the Live Demo on Itch.io!](https://bh4v-xy.itch.io/triple-t-games)**
+**Play the Game!(https://bh4v-xy.itch.io/triple-t-games)**
 
 Triple-T Games is a fast-paced survival rush where players are thrown into a series of rapid-fire microgames. You start with 5 lives. Between each round, a dynamic intermission screen counts down to the next challenge. If you lose all your lives, it's game over. Survive the gauntlet, and you win.
 
@@ -60,4 +60,10 @@ Want to look at the node trees and scripts yourself?
 1. Install **Godot Engine 4.x**.
 2. Clone this repository:
    ```bash
-   git clone REPO_URL_HERE
+   git clone (github.com/Bhav531/TripleT-Games)
+
+## Credits
+Coding Editor : Godot 4.1
+Developer : Bhav Kartik Jindal
+Images : Google
+(No generative AI was used)
