@@ -63,7 +63,7 @@ Want to look at the node trees and scripts yourself?
    git clone (github.com/Bhav531/TripleT-Games)
 
 ## Credits
-Coding Editor : Godot 4.1
-Developer : Bhav Kartik Jindal
-Images : Google
-(No generative AI was used)
+# Coding Editor : Godot 4.1
+# Developer : Bhav Kartik Jindal
+# Images : Google
+# (No generative AI was used)
