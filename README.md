@@ -1,7 +1,8 @@
 # Triple-T Games
-A high-speed, WarioWare-style 2D microgame gauntlet built in Godot 4. 
+A fast-paced, Tung Tung Sahur- themed, WarioWare-style 2D minigame rush where players must survive four intense, distinct micro-challenges - all built in Godot.
 
-![Triple-T Gameplay Showcase](IMAGE_URL_HERE)
+<img width="1152" height="642" alt="image" src="https://github.com/user-attachments/assets/711831a7-3d6d-4eb6-8f5c-580b0365f6e2" />
+
 
 **[🎮 Play the Live Demo on Itch.io!](ITCH_IO_URL_HERE)**
 
