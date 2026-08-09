@@ -4,16 +4,15 @@ A fast-paced, Tung Tung Sahur- themed, WarioWare-style 2D minigame rush where pl
 <img width="1152" height="642" alt="image" src="https://github.com/user-attachments/assets/711831a7-3d6d-4eb6-8f5c-580b0365f6e2" />
 
 
-**[🎮 Play the Live Demo on Itch.io!](ITCH_IO_URL_HERE)**
+**[Play the Live Demo on Itch.io!](https://bh4v-xy.itch.io/triple-t-games)**
 
 Triple-T Games is a fast-paced survival rush where players are thrown into a series of rapid-fire microgames. You start with 5 lives. Between each round, a dynamic intermission screen counts down to the next challenge. If you lose all your lives, it's game over. Survive the gauntlet, and you win.
 
-## 🚀 Quick Start
+## Quick Start
 Want to just play the game? 
-1. Head over to the **[Itch.io Live Demo](ITCH_IO_URL_HERE)** to play directly in your browser.
-2. Alternatively, grab the latest executable for your OS from the [Releases page](RELEASE_URL_HERE), extract, and run!
+- Head over to the **[Itch.io Live Demo]((https://bh4v-xy.itch.io/triple-t-games)** to play directly in your browser.
 
-## 🕹️ The Gauntlet (Features)
+## The Gauntlet (Features)
 The core loop consists of four distinct minigames, each testing a completely different player skill. The game seamlessly transitions between them without dropping a frame:
 
 *   **Minigame 1: The Platformer Rush**
@@ -29,7 +28,7 @@ The core loop consists of four distinct minigames, each testing a completely dif
     *   *Mechanic:* Horizontal spatial tracking and dynamic spawning.
     *   *Objective:* Tung icons spawn at random X-coordinates at the top of the screen every 2 seconds. The player must catch at least 6 out of 7 falling icons. Missing 2 instantly triggers a game over for that round.
 
-## 🧠 Under the Hood (Architecture & Technical Depth)
+## Under the Hood (Architecture & Technical Depth)
 This project was built to be highly modular. Instead of a single massive scene, the game relies on isolated minigame scenes orchestrated by a global state manager. 
 
 Here are the key technical implementations that make it work:
@@ -55,7 +54,7 @@ In Minigame 4 (Tung Catcher), the falling objects (`FallingIcon` instances) are 
 *   To avoid brittle UI dependencies, signals (`icon_caught` and `icon_missed`) are connected dynamically via code (`icon_instance.icon_caught.connect(_on_icon_caught)`).
 *   Collision detection uses Godot's Scene Groups (`is_in_group("player")`) to ensure the falling icons can identify the player regardless of how the Node tree is structured.
 
-## 💻 How to Run it Locally
+## How to Run it Locally
 Want to look at the node trees and scripts yourself?
 
 1. Install **Godot Engine 4.x**.
