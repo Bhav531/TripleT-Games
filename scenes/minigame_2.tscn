@@ -75,6 +75,32 @@ script = ExtResource("4_eachr")
 
 [node name="minigame_2_timer" parent="." unique_id=828454545 instance=ExtResource("5_dqa6p")]
 
+[node name="InstructionsUI" type="CanvasLayer" parent="." unique_id=466589180]
+process_mode = 3
+
+[node name="Panel" type="Panel" parent="InstructionsUI" unique_id=1783421203]
+offset_left = 465.0
+offset_top = 10.0
+offset_right = 646.0
+offset_bottom = 148.0
+
+[node name="InstructionLabel" type="Label" parent="InstructionsUI/Panel" unique_id=1854759549]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 34.0
+offset_right = 1358.0
+offset_bottom = 173.0
+scale = Vector2(0.7631094, 1.1284981)
+text = "Click on the tung icons as
+fast as you can(close this
+panel to start)"
+
+[node name="CloseButton" type="Button" parent="InstructionsUI/Panel" unique_id=1764535912]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "X"
+
 [connection signal="pressed" from="Icon1" to="." method="_on_icon_pressed"]
 [connection signal="pressed" from="Icon2" to="." method="_on_icon_pressed"]
 [connection signal="pressed" from="Icon3" to="." method="_on_icon_pressed"]

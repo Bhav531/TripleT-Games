@@ -171,6 +171,32 @@ text = "Survive 20 seconds without      letting Triple-T get a point!"
 [node name="BallTimer" type="Timer" parent="." unique_id=969756159]
 one_shot = true
 
+[node name="InstructionsUI" type="CanvasLayer" parent="." unique_id=164002537]
+process_mode = 3
+
+[node name="Panel" type="Panel" parent="InstructionsUI" unique_id=928274319]
+offset_left = 472.0
+offset_top = 120.0
+offset_right = 656.0
+offset_bottom = 232.0
+
+[node name="InstructionLabel" type="Label" parent="InstructionsUI/Panel" unique_id=888008722]
+layout_mode = 0
+offset_top = 24.0
+offset_right = 228.0
+offset_bottom = 97.0
+scale = Vector2(0.7631094, 1.1284981)
+text = "Use the up and down arrow 
+key to move your paddle 
+on the left hand side(
+close this panel to start)"
+
+[node name="CloseButton" type="Button" parent="InstructionsUI/Panel" unique_id=201004294]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "X"
+
 [connection signal="body_entered" from="ScoreLeft" to="." method="_on_score_left_body_entered"]
 [connection signal="body_entered" from="ScoreRight" to="." method="_on_score_right_body_entered"]
 [connection signal="timeout" from="BallTimer" to="." method="_on_ball_timer_timeout"]

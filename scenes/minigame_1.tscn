@@ -11,7 +11,7 @@
 size = Vector2(1159.5, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4a8"]
-size = Vector2(226.79688, 27.5)
+size = Vector2(218.99805, 30.5)
 
 [sub_resource type="Animation" id="Animation_v5ebm"]
 length = 0.001
@@ -81,27 +81,27 @@ shape = SubResource("RectangleShape2D_f45bh")
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=1160359189]
 
 [node name="ColorRect" type="ColorRect" parent="Platform2" unique_id=641277046]
-offset_left = 117.0
+offset_left = 118.0
 offset_top = 332.0
 offset_right = 336.0
 offset_bottom = 358.0
 color = Color(0.97675186, 0.92770296, 2.3102762e-06, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=614926410]
-position = Vector2(231.40625, 342)
+position = Vector2(227, 336)
 shape = SubResource("RectangleShape2D_kr4a8")
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=655191901]
 
 [node name="ColorRect" type="ColorRect" parent="Platform3" unique_id=565995593]
-offset_left = 354.0
-offset_top = 191.0
-offset_right = 594.0
-offset_bottom = 223.0
+offset_left = 374.0
+offset_top = 190.0
+offset_right = 614.0
+offset_bottom = 222.0
 color = Color(0.97675186, 0.92770296, 2.3102762e-06, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=266181030]
-position = Vector2(464, 204)
+position = Vector2(480, 198)
 shape = SubResource("RectangleShape2D_kr4a8")
 
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=569716995]
@@ -114,7 +114,7 @@ offset_bottom = 129.0
 color = Color(0.97675186, 0.92770296, 2.3102762e-06, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1499035667]
-position = Vector2(859.60156, 118.25)
+position = Vector2(869, 124)
 shape = SubResource("RectangleShape2D_kr4a8")
 
 [node name="Player" parent="." unique_id=1850836401 instance=ExtResource("2_og05i")]
@@ -193,6 +193,34 @@ scale = Vector2(0.9999999, 0.9999996)
 shape = SubResource("RectangleShape2D_pg0oq")
 
 [node name="Node2D" parent="." unique_id=604071090 instance=ExtResource("6_j1cg4")]
+
+[node name="InstructionsUI" type="CanvasLayer" parent="." unique_id=1519883597]
+process_mode = 3
+
+[node name="Panel" type="Panel" parent="InstructionsUI" unique_id=2142796571]
+offset_left = 447.0
+offset_top = 23.0
+offset_right = 676.0
+offset_bottom = 137.0
+
+[node name="Label" type="Label" parent="InstructionsUI/Panel" unique_id=960776445]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 2.0
+offset_right = 232.0
+offset_bottom = 113.0
+text = "Use the arrow keys and
+space bar to navigate
+through the obstacles 
+and collect the TUNG
+tokens!(close this panel
+to start!)"
+
+[node name="CloseButton" type="Button" parent="InstructionsUI/Panel" unique_id=929091606]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "X"
 
 [connection signal="icon_collected" from="icon1" to="." method="icon_collect"]
 [connection signal="icon_collected" from="icon2" to="." method="icon_collect"]

@@ -60,4 +60,13 @@ offset_top = 272.0
 offset_right = 826.0
 offset_bottom = 304.0
 theme_override_font_sizes/font_size = 32
-text = "Collect THE RAINING ICONS!"
+text = "Collect THE RAINING ICONS!
+"
+
+[node name="Label2" type="Label" parent="." unique_id=810989305]
+offset_left = 264.0
+offset_top = 304.0
+offset_right = 904.0
+offset_bottom = 352.0
+theme_override_font_sizes/font_size = 27
+text = "Move Triple-T using left-right arrow keys!"

@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var timer: RichTextLabel = $timer
 
-var time_left: float = 5.67
+var time_left: float = 10.00
 var timer_ended: bool = false
 
 func _process(delta: float) -> void:
