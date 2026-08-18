@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b7vitjt2htmmk"]
+
+[ext_resource type="Script" uid="uid://k8md3m37shdq" path="res://scenes/settings_scene.gd" id="1_kqt80"]
+[ext_resource type="Texture2D" uid="uid://c6bxa3mkyekh5" path="res://tung bg.png" id="2_5jacn"]
+[ext_resource type="Shader" uid="uid://depcmgllb87np" path="res://scenes/blur.gdshader" id="3_83w5s"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tal8t"]
+shader = ExtResource("3_83w5s")
+shader_parameter/blur_amount = 2.5
+shader_parameter/tint_color = Color(0, 0, 0, 0.3)
+
+[node name="SettingsScene" type="Control" unique_id=1439955553]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kqt80")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=700415896]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5jacn")
+
+[node name="BlurBackground" type="ColorRect" parent="." unique_id=668703747]
+material = SubResource("ShaderMaterial_tal8t")
+layout_mode = 0
+offset_left = 373.00003
+offset_top = 345.0
+offset_right = 669.28973
+offset_bottom = 526.3804
+scale = Vector2(1.3871557, 1.635157)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1037577678]
+layout_mode = 0
+offset_left = 381.00003
+offset_top = 352.0
+offset_right = 621.0
+offset_bottom = 520.0
+scale = Vector2(1.3001987, 1.3373722)
+alignment = 1
+
+[node name="DifficultyBox" type="HBoxContainer" parent="VBoxContainer" unique_id=1514236215]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/DifficultyBox" unique_id=1913679795]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Difficulty"
+
+[node name="DifficultyButton" type="OptionButton" parent="VBoxContainer/DifficultyBox" unique_id=1902881712]
+layout_mode = 2
+
+[node name="MusicBox" type="HBoxContainer" parent="VBoxContainer" unique_id=910241747]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/MusicBox" unique_id=736483015]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "Music: "
+
+[node name="MusicToggle" type="CheckButton" parent="VBoxContainer/MusicBox" unique_id=1269703587]
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 33
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=315295961]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "PLAY GAME"
+
+[node name="Back" type="Button" parent="VBoxContainer" unique_id=1877225526]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "BACK"

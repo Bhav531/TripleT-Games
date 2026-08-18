@@ -221,7 +221,3 @@ layout_mode = 0
 offset_right = 8.0
 offset_bottom = 8.0
 text = "X"
-
-[connection signal="icon_collected" from="icon1" to="." method="icon_collect"]
-[connection signal="icon_collected" from="icon2" to="." method="icon_collect"]
-[connection signal="icon_collected" from="icon3" to="." method="icon_collect"]

@@ -6,9 +6,9 @@
 script = ExtResource("1_srplv")
 
 [node name="timer" type="RichTextLabel" parent="." unique_id=458315366]
-offset_left = 35.0
-offset_top = 29.0
-offset_right = 168.0
-offset_bottom = 80.0
+offset_left = 31.0
+offset_top = 32.0
+offset_right = 164.0
+offset_bottom = 83.0
 theme_override_font_sizes/normal_font_size = 42
-text = "10.00"
+text = "0"

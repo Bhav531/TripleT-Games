@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://btqxrht7lu3k0"]
+
+[ext_resource type="AudioStream" uid="uid://beqd5mh5oa48s" path="res://TUNG SAHUR FUNK.mp3" id="1_jxdhu"]
+[ext_resource type="Script" uid="uid://3eb08scmu5de" path="res://scenes/music_player.gd" id="2_ql6qh"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" unique_id=1292599525]
+stream = ExtResource("1_jxdhu")
+autoplay = true
+script = ExtResource("2_ql6qh")

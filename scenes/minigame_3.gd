@@ -19,6 +19,14 @@ func _ready() -> void:
 	
 	panel.modulate = Color(1.4, 1.4, 1.4, 0.95)
 	
+	match Global.difficulty:
+		"Easy":
+			time_left = 15.0
+		"Hard":
+			time_left = 25.0
+		_: # Normal
+			time_left = 20.0
+	
 	$BallTimer.stop()
 	score = [0, 0]
 	$HUD/CPUScore.text = "0"
@@ -32,14 +40,12 @@ func _on_close_button_pressed() -> void:
 	
 	await get_tree().process_frame
 	
-	# Center the ball before launching
 	var viewport_center = get_viewport_rect().size / 2.0
 	$Ball.position = viewport_center
 	$Ball.new_ball()
 	
 	game_started = true
 	
-	# 0.5s grace period before score zones can register hits
 	await get_tree().create_timer(0.5).timeout
 	can_score = true
 
@@ -61,7 +67,6 @@ func _on_ball_timer_timeout() -> void:
 		$Ball.new_ball()
 
 func _on_score_left_body_entered(body: Node2D) -> void:
-	# Ignore if game hasn't started, scoring isn't active, or colliding body isn't the Ball
 	if not game_started or game_ended or not can_score:
 		return
 	if not "ball" in body.name.to_lower():

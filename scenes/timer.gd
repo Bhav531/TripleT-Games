@@ -1,15 +1,36 @@
 extends Node2D
 
-@onready var timer: RichTextLabel = $timer
+var time_left: float = 9.0
+var timer_active: bool = true
 
-var time_left: float = 10.00
-var timer_ended: bool = false
+func _ready() -> void:
+	match Global.difficulty:
+		"Easy":
+			time_left = 12.0
+		"Hard":
+			time_left = 6.7
+		_: # Medium / Normal
+			time_left = 9.0
 
 func _process(delta: float) -> void:
+	if not timer_active:
+		return
+
 	if time_left > 0:
 		time_left -= delta
-		timer.text = str("%.1f" % time_left)
-	elif not timer_ended:
-		time_left = 0
-		timer.text = "0.0"
-		timer_ended = true
+		for child in get_children():
+			if child is RichTextLabel or child is Label:
+				child.text = str(snapped(time_left, 0.1))
+	else:
+		time_left = 0.0
+		timer_active = false
+		for child in get_children():
+			if child is RichTextLabel or child is Label:
+				child.text = "0.0"
+		
+		var parent = get_parent()
+		var owner_node = get_owner()
+		if owner_node and owner_node.has_method("game_failed"):
+			owner_node.game_failed()
+		elif parent and parent.has_method("game_failed"):
+			parent.game_failed()
