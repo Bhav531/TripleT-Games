@@ -11,7 +11,7 @@
 size = Vector2(1159.5, 27)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4a8"]
-size = Vector2(218.99805, 30.5)
+size = Vector2(218.99805, 26.25)
 
 [sub_resource type="Animation" id="Animation_v5ebm"]
 length = 0.001
@@ -51,7 +51,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pg0oq"]
-size = Vector2(335.7674, 293.5072)
+size = Vector2(374.23373, 321.60886)
 
 [node name="minigame_1" type="Node2D" unique_id=1281699861]
 script = ExtResource("1_fa05o")
@@ -72,7 +72,7 @@ texture = ExtResource("2_j1cg4")
 offset_top = 456.0
 offset_right = 1155.0
 offset_bottom = 490.0
-color = Color(0.97675186, 0.92770296, 2.3102762e-06, 1)
+color = Color(0.95, 0.62, 0.12, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform1" unique_id=1072860534]
 position = Vector2(584.25, 470.5)
@@ -81,40 +81,53 @@ shape = SubResource("RectangleShape2D_f45bh")
 [node name="Platform2" type="StaticBody2D" parent="." unique_id=1160359189]
 
 [node name="ColorRect" type="ColorRect" parent="Platform2" unique_id=641277046]
-offset_left = 118.0
-offset_top = 332.0
-offset_right = 336.0
-offset_bottom = 358.0
-color = Color(0.97675186, 0.92770296, 2.3102762e-06, 1)
+offset_left = 113.0
+offset_top = 326.0
+offset_right = 331.3
+offset_bottom = 352.0
+color = Color(0.95, 0.62, 0.12, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform2" unique_id=614926410]
-position = Vector2(227, 336)
+position = Vector2(221, 340)
 shape = SubResource("RectangleShape2D_kr4a8")
 
 [node name="Platform3" type="StaticBody2D" parent="." unique_id=655191901]
 
 [node name="ColorRect" type="ColorRect" parent="Platform3" unique_id=565995593]
-offset_left = 374.0
-offset_top = 190.0
-offset_right = 614.0
-offset_bottom = 222.0
-color = Color(0.97675186, 0.92770296, 2.3102762e-06, 1)
+offset_left = 415.0
+offset_top = 210.0
+offset_right = 633.3
+offset_bottom = 236.0
+color = Color(0.95, 0.62, 0.12, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3" unique_id=266181030]
-position = Vector2(480, 198)
+position = Vector2(526, 224)
 shape = SubResource("RectangleShape2D_kr4a8")
 
 [node name="Platform4" type="StaticBody2D" parent="." unique_id=569716995]
 
 [node name="ColorRect" type="ColorRect" parent="Platform4" unique_id=1219347894]
-offset_left = 764.0
-offset_top = 110.0
-offset_right = 979.0
-offset_bottom = 129.0
-color = Color(0.97675186, 0.92770296, 2.3102762e-06, 1)
+offset_left = 685.0
+offset_top = 132.0
+offset_right = 903.3
+offset_bottom = 158.0
+color = Color(0.95, 0.62, 0.12, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4" unique_id=1499035667]
-position = Vector2(869, 124)
+position = Vector2(795, 145)
+shape = SubResource("RectangleShape2D_kr4a8")
+
+[node name="Platform5" type="StaticBody2D" parent="." unique_id=97254928]
+
+[node name="ColorRect" type="ColorRect" parent="Platform5" unique_id=1944465351]
+offset_left = 56.0
+offset_top = 123.0
+offset_right = 274.3
+offset_bottom = 149.0
+color = Color(0.95, 0.62, 0.12, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform5" unique_id=1509128677]
+position = Vector2(165, 137)
 shape = SubResource("RectangleShape2D_kr4a8")
 
 [node name="Player" parent="." unique_id=1850836401 instance=ExtResource("2_og05i")]
@@ -154,17 +167,41 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_j1cg4")
 
 [node name="icon" type="TextureRect" parent="icon2" unique_id=1969129492]
-offset_left = 1426.2427
-offset_top = -605.7489
-offset_right = 3783.6304
-offset_bottom = 1617.1339
+offset_left = 1474.7957
+offset_top = -543.30054
+offset_right = 3832.1833
+offset_bottom = 1679.5823
 scale = Vector2(0.1647686, 0.16013235)
 texture = ExtResource("5_j1cg4")
 
 [node name="Area2D" type="Area2D" parent="icon2" unique_id=933700365]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="icon2/Area2D" unique_id=1822562552]
-position = Vector2(1632.5928, -455.8728)
+position = Vector2(1687.2146, -387.17963)
+scale = Vector2(0.9999999, 0.9999996)
+shape = SubResource("RectangleShape2D_pg0oq")
+
+[node name="icon4" type="Node2D" parent="." unique_id=383002242]
+position = Vector2(180.99998, 230.99998)
+scale = Vector2(0.1647686, 0.16013235)
+script = ExtResource("3_v5ebm")
+
+[node name="animation" type="AnimationPlayer" parent="icon4" unique_id=1398570427]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_j1cg4")
+
+[node name="icon" type="TextureRect" parent="icon4" unique_id=2063763946]
+offset_left = -315.59412
+offset_top = -1011.6632
+offset_right = 2041.7936
+offset_bottom = 1211.2196
+scale = Vector2(0.1647686, 0.16013235)
+texture = ExtResource("5_j1cg4")
+
+[node name="Area2D" type="Area2D" parent="icon4" unique_id=444842669]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="icon4/Area2D" unique_id=638068865]
+position = Vector2(-128.4773, -829.0014)
 scale = Vector2(0.9999999, 0.9999996)
 shape = SubResource("RectangleShape2D_pg0oq")
 
@@ -178,17 +215,17 @@ root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_j1cg4")
 
 [node name="icon" type="TextureRect" parent="icon3" unique_id=466903356]
-offset_left = 3963.1338
-offset_top = -1161.5392
-offset_right = 6320.5215
-offset_bottom = 1061.3436
+offset_left = 3501.8801
+offset_top = -967.9492
+offset_right = 5859.2676
+offset_bottom = 1254.9336
 scale = Vector2(0.1647686, 0.16013235)
 texture = ExtResource("5_j1cg4")
 
 [node name="Area2D" type="Area2D" parent="icon3" unique_id=182324126]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="icon3/Area2D" unique_id=1876448544]
-position = Vector2(4181.6216, -992.9287)
+position = Vector2(3720.3694, -786.8492)
 scale = Vector2(0.9999999, 0.9999996)
 shape = SubResource("RectangleShape2D_pg0oq")
 
@@ -198,23 +235,23 @@ shape = SubResource("RectangleShape2D_pg0oq")
 process_mode = 3
 
 [node name="Panel" type="Panel" parent="InstructionsUI" unique_id=2142796571]
-offset_left = 447.0
-offset_top = 23.0
-offset_right = 676.0
-offset_bottom = 137.0
+offset_left = 445.0
+offset_top = 9.0
+offset_right = 674.0
+offset_bottom = 124.0
 
 [node name="Label" type="Label" parent="InstructionsUI/Panel" unique_id=960776445]
 layout_mode = 0
 offset_left = 22.0
-offset_top = 2.0
-offset_right = 232.0
-offset_bottom = 113.0
+offset_top = 1.0
+offset_right = 229.0
+offset_bottom = 118.0
 text = "Use the arrow keys and
-space bar to navigate
-through the obstacles 
-and collect the TUNG
-tokens!(close this panel
-to start!)"
+space bar to jump.
+Collect all 4 TUNG
+tokens to win.
+Close this panel
+to start!"
 
 [node name="CloseButton" type="Button" parent="InstructionsUI/Panel" unique_id=929091606]
 layout_mode = 0

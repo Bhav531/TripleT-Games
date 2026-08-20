@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 		_update_score_label()
 		_on_timer_timeout()
 
-# Call this custom function whenever your player touches a collectible node
+
 func _on_item_collected() -> void:
 	if game_ended or not game_started:
 		return
@@ -99,11 +99,11 @@ func _on_timer_timeout() -> void:
 	if game_ended and time_left > 0:
 		return
 
-	# If the timer runs out before target_items is reached, the player loses
+
 	game_ended = true
 	spawn_timer.stop()
 	Global.lives -= 1
-	Global.minigames_done = 4 # Or whatever number represents minigame 4
+	Global.minigames_done = 4
 
 	if Global.lives <= 0:
 		call_deferred("_change_scene", "res://scenes/death_scene.tscn")

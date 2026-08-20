@@ -6,11 +6,11 @@ var timer_active: bool = true
 func _ready() -> void:
 	match Global.difficulty:
 		"Easy":
-			time_left = 12.0
+			time_left = 15.0
 		"Hard":
-			time_left = 6.7
+			time_left = 7.6
 		_: # Medium / Normal
-			time_left = 9.0
+			time_left = 12.0
 
 func _process(delta: float) -> void:
 	if not timer_active:

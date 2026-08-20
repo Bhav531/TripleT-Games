@@ -11,6 +11,6 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 	
-	# This stops the player from walking off the edges of the screen
+
 	var view_size = get_viewport_rect().size
 	position.x = clamp(position.x, 32.0, view_size.x - 32.0)

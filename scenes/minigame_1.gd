@@ -3,10 +3,9 @@ extends Node2D
 var game_ended: bool = false
 var game_started: bool = false
 var icons_collected: int = 0
-const TARGET_ICONS: int = 3
+const TARGET_ICONS: int = 4
 
 @onready var instructions_ui: CanvasLayer = find_child("InstructionsUI", true, false)
-@onready var timer_node: Node2D = find_child("Timer", true, false)
 
 func _ready() -> void:
 	get_tree().paused = true
@@ -19,8 +18,7 @@ func _ready() -> void:
 			close_btn.pressed.connect(_on_close_button_pressed)
 
 func _connect_icon_signals() -> void:
-	for icon_name in [&"icon1", &"icon2", &"icon3"]:
-		var icon = get_node_or_null(NodePath(icon_name))
+	for icon in get_children():
 		if icon and icon.has_signal(&"icon_collected") and not icon.is_connected(&"icon_collected", collect_icon):
 			icon.connect(&"icon_collected", collect_icon)
 
@@ -30,18 +28,13 @@ func _on_close_button_pressed() -> void:
 	get_tree().paused = false
 	await get_tree().process_frame
 	game_started = true
-	
-	if timer_node and timer_node.has_method("start_timer"):
-		timer_node.start_timer()
 
-# Call this whenever an icon is clicked or collected
 func collect_icon() -> void:
 	if game_ended or not game_started:
 		return
 		
 	icons_collected += 1
 	
-	# Automatically triggers win as soon as 3 icons are collected
 	if icons_collected >= TARGET_ICONS:
 		game_win()
 
