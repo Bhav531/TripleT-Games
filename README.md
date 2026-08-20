@@ -27,6 +27,13 @@ The core loop consists of four distinct minigames, each testing a completely dif
 *   **Minigame 4: Tung Catcher**
     *   *Mechanic:* Horizontal spatial tracking and dynamic spawning.
     *   *Objective:* Tung icons spawn at random X-coordinates at the top of the screen every 2 seconds. The player must catch at least 6 out of 7 falling icons. Missing 2 instantly triggers a game over for that round.
+ 
+### What's New
+**Settings Menu:** Custom difficulty selector (Easy, Normal, Hard) and a global Music Toggle.
+
+**Dynamic Time Scaling:** Timer constraints and spawn pools scale dynamically according to chosen difficulty.
+
+**Visual Polish & Juice:** Smooth Tween-driven animations, icon rotations, dynamic scaling, and custom UI entrance transitions.
 
 ## Under the Hood (Architecture & Technical Depth)
 This project was built to be highly modular. Instead of a single massive scene, the game relies on isolated minigame scenes orchestrated by a global state manager. 
