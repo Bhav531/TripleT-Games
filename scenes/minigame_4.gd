@@ -22,13 +22,13 @@ func _ready() -> void:
 	match Global.difficulty:
 		"Easy":
 			target_items = 5
-			time_left = 12.0
+			time_left = 67.0
 		"Hard":
 			target_items = 7
-			time_left = 8.0
+			time_left = 67.0
 		_: # Normal
 			target_items = 6
-			time_left = 10.0
+			time_left = 67.0
 
 	spawn_timer.wait_time = 1.0
 	spawn_timer.timeout.connect(_on_spawn_timer_timeout)

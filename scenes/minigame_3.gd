@@ -110,4 +110,4 @@ func _on_timer_timeout() -> void:
 
 func _change_scene(target_path: String) -> void:
 	get_tree().paused = false
-	get_tree().change_scene_to_file(target_path)
+	get_tree().change_scene_to_file(target_path)	

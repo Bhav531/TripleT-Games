@@ -3,7 +3,7 @@ extends Area2D
 signal icon_caught
 signal icon_missed
 
-var speed: float = 350.0
+var speed: float = 150
 var is_collected: bool = false
 
 @onready var sprite: Sprite2D = $Sprite2D

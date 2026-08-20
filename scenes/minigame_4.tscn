@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://paw4cmwm6nt7" path="res://final_t3.png" id="2_ewl5d"]
 [ext_resource type="Script" uid="uid://bbj2kkpctr78q" path="res://scenes/minigame_4_player.gd" id="2_mxhla"]
 [ext_resource type="Texture2D" uid="uid://fm3k3xmehg5c" path="res://player.png" id="3_ewl5d"]
-[ext_resource type="Texture2D" uid="uid://1hl73a33amb3" path="res://images.jpg" id="5_ewl5d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4a8"]
 size = Vector2(42, 96.125)
@@ -45,14 +44,6 @@ shape = SubResource("RectangleShape2D_kr4a8")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player/PlayerArea" unique_id=651740211]
 position = Vector2(35.5, 584)
 shape = SubResource("RectangleShape2D_f45bh")
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=791440073]
-offset_left = 512.0
-offset_top = 40.0
-offset_right = 1013.0
-offset_bottom = 540.0
-scale = Vector2(0.23663385, 0.22802834)
-texture = ExtResource("5_ewl5d")
 
 [node name="Label" type="Label" parent="." unique_id=903814175]
 offset_left = 352.0
