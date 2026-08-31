@@ -44,7 +44,7 @@ func game_win() -> void:
 	game_ended = true
 	Global.minigames_done += 1
 	
-	if Global.minigames_done >= 4:
+	if Global.minigames_done > 5:
 		call_deferred("_change_scene", "res://scenes/winner_scene.tscn")
 	else:
 		call_deferred("_change_scene", "res://scenes/level_scene.tscn")

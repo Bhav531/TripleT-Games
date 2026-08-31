@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://n0wew87q4ron"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_j3pel"]
+bounce = 5.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kr4a8"]
+radius = 19.0
+
+[node name="PoolBall" type="RigidBody2D" unique_id=1251261602 groups=["ballsv2"]]
+physics_material_override = SubResource("PhysicsMaterial_j3pel")
+lock_rotation = true
+linear_damp_mode = 1
+linear_damp = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1921722222]
+texture_filter = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=835264886]
+shape = SubResource("CircleShape2D_kr4a8")

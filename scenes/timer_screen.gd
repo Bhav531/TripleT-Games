@@ -18,7 +18,7 @@ func _ready() -> void:
 	if Global.minigames_done < 1:
 		Global.minigames_done = 1
 	
-	if Global.minigames_done <= 4: 
+	if Global.minigames_done <= 5:
 		var next_scene_path = "res://scenes/minigame_" + str(Global.minigames_done) + ".tscn"
 		
 		if ResourceLoader.exists(next_scene_path):

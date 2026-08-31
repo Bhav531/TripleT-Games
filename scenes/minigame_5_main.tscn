@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dye1koh6hgpf8"]
+
+[ext_resource type="PackedScene" uid="uid://35tvmtpsyco8" path="res://scenes/minigame_5.tscn" id="1_7igsv"]
+[ext_resource type="PackedScene" uid="uid://bl77gbi7hf6gv" path="res://scenes/cue.tscn" id="2_m8qsj"]
+
+[node name="Main" type="Node" unique_id=1194383207]
+
+[node name="Table" parent="." unique_id=1625890456 instance=ExtResource("1_7igsv")]
+
+[node name="Cue" parent="." unique_id=1179086901 instance=ExtResource("2_m8qsj")]
