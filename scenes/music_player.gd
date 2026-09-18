@@ -7,3 +7,4 @@ func _ready() -> void:
 
 func update_music() -> void:
 	stream_paused = not Global.music_enabled
+	volume_db = linear_to_db(maxf(Global.music_volume, 0.001))

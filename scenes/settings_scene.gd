@@ -2,6 +2,8 @@ extends Control
 
 @onready var difficulty_button: OptionButton = $VBoxContainer/DifficultyBox/DifficultyButton
 @onready var music_toggle: CheckButton = $VBoxContainer/MusicBox/MusicToggle
+@onready var volume_slider: HSlider = $VBoxContainer/VolumeBox/VolumeSlider
+@onready var volume_value: Label = $VBoxContainer/VolumeBox/VolumeValue
 @onready var play_button: Button = $VBoxContainer/PlayButton
 @onready var back_button: Button = $VBoxContainer/Back
 
@@ -20,9 +22,12 @@ func _ready() -> void:
 			difficulty_button.select(2)
 
 	music_toggle.button_pressed = Global.music_enabled
+	volume_slider.value = roundi(Global.music_volume * 100.0)
+	_update_volume_label()
 
 	difficulty_button.item_selected.connect(_on_difficulty_selected)
 	music_toggle.toggled.connect(_on_music_toggled)
+	volume_slider.value_changed.connect(_on_volume_changed)
 	play_button.pressed.connect(_on_play_pressed)
 	back_button.pressed.connect(_on_back_pressed)
 
@@ -33,6 +38,15 @@ func _on_music_toggled(toggled_on: bool) -> void:
 	Global.music_enabled = toggled_on
 	if has_node("/root/MusicPlayer"):
 		MusicPlayer.update_music()
+
+func _on_volume_changed(value: float) -> void:
+	Global.music_volume = value / 100.0
+	_update_volume_label()
+	if has_node("/root/MusicPlayer"):
+		MusicPlayer.update_music()
+
+func _update_volume_label() -> void:
+	volume_value.text = "%d%%" % roundi(volume_slider.value)
 
 func _on_play_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/level_scene.tscn")

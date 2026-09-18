@@ -69,6 +69,28 @@ custom_minimum_size = Vector2(10, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 33
 
+[node name="VolumeBox" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/VolumeBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Volume"
+
+[node name="VolumeSlider" type="HSlider" parent="VBoxContainer/VolumeBox"]
+custom_minimum_size = Vector2(145, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+step = 1.0
+tooltip_text = "Music volume"
+
+[node name="VolumeValue" type="Label" parent="VBoxContainer/VolumeBox"]
+custom_minimum_size = Vector2(46, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 2
+
 [node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=315295961]
 layout_mode = 2
 theme_override_font_sizes/font_size = 34

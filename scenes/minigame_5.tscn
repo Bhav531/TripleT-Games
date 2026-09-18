@@ -1,84 +1,205 @@
-[gd_scene format=3 uid="uid://35tvmtpsyco8"]
+[gd_scene format=3 uid="uid://b7n14jqi3ohre"]
 
-[ext_resource type="Script" uid="uid://btbqtp0bwta3w" path="res://scenes/minigame_5_main.gd" id="1_5main"]
-[ext_resource type="PackedScene" uid="uid://n0wew87q4ron" path="res://scenes/pool_ball.tscn" id="2_pool"]
+[ext_resource type="Script" uid="uid://duc8e24miqra1" path="res://scenes/minigame_5.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://e1drkbdgnvnf" path="res://table.png" id="2_table"]
+[ext_resource type="Texture2D" uid="uid://d03mqfdew41rl" path="res://ball_16.png" id="3_cue_ball"]
+[ext_resource type="Texture2D" uid="uid://csqmfc2u5vuow" path="res://cue.png" id="4_cue"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nllmd"]
-load_path = "res://.godot/imported/table.png-8ab8da0b1c3fbe478ed3faf13f0e002f.ctex"
+[sub_resource type="StyleBoxFlat" id="StyleBarBackground"]
+bg_color = Color(0.04, 0.08, 0.13, 0.9)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_kr4a8"]
-size = Vector2(438.16125, 337.95044)
+[sub_resource type="StyleBoxFlat" id="StyleBarFill"]
+bg_color = Color(1, 0.43, 0.1, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f45bh"]
-size = Vector2(45.793594, 330.60376)
+[sub_resource type="StyleBoxFlat" id="StylePanel"]
+bg_color = Color(0.025, 0.05, 0.09, 0.94)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.95, 0.72, 0.18, 1)
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pg0oq"]
-size = Vector2(507.8925, 347.3963)
+[node name="Minigame5" type="Node2D" unique_id=1672491933]
+script = ExtResource("1_script")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6yoaj"]
-size = Vector2(436.7129, 364.46594)
+[node name="Backdrop" type="ColorRect" parent="." unique_id=306470067]
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.02, 0.035, 0.065, 1)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn2p0"]
-size = Vector2(41.426697, 341.0991)
+[node name="Table" type="Sprite2D" parent="." unique_id=538061209]
+position = Vector2(576, 340)
+scale = Vector2(0.95, 0.85)
+texture = ExtResource("2_table")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2me32"]
-size = Vector2(861.3442, 20)
+[node name="TableTint" type="Polygon2D" parent="." unique_id=834153847]
+color = Color(0.03, 0.11, 0.09, 0.13)
+polygon = PackedVector2Array(110, 104, 1092, 104, 1092, 558, 110, 558)
 
-[node name="Minigame_5" type="Node2D" unique_id=968247094]
-script = ExtResource("1_5main")
-ball_scene = ExtResource("2_pool")
+[node name="AimLine" type="Line2D" parent="." unique_id=270218566]
+z_index = 4
+width = 2.0
+default_color = Color(0.9, 1, 0.88, 0.48)
 
-[node name="Table" type="Sprite2D" parent="." unique_id=1625890456]
-texture_filter = 1
-position = Vector2(-12, 1)
-scale = Vector2(0.96083343, 0.95280236)
-texture = SubResource("CompressedTexture2D_nllmd")
-centered = false
+[node name="Balls" type="Node2D" parent="." unique_id=115253218]
+z_index = 6
 
-[node name="Cushions" type="StaticBody2D" parent="." unique_id=242298132]
+[node name="CueBall" type="Node2D" parent="Balls" unique_id=1029680472]
+position = Vector2(850, 335)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Cushions" unique_id=1084736177]
-polygon = PackedVector2Array(109.28013, 78.71517, 89.50563, 56.674923, 84.30181, -266.58206, 563.05286, -266.58206, 563.0529, 10.416199, 563.05286, 55.62539, 555.7675, 76.616104)
+[node name="Sprite2D" type="Sprite2D" parent="Balls/CueBall" unique_id=1646879274]
+texture = ExtResource("3_cue_ball")
 
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Cushions" unique_id=1714786552]
-position = Vector2(522.4631, -1.0495356)
-polygon = PackedVector2Array(109.28013, 78.71517, 99.91321, 55.62539, 98.8725, -268.68112, 544.4496, -266.58206, 574.5013, -263.43344, 580.7458, 58.773994, 558.88983, 77.665634)
+[node name="CueLine" type="Line2D" parent="." unique_id=1336776308]
+z_index = 5
+width = 8.0
+default_color = Color(0.1, 0.05, 0.02, 0.36)
+begin_cap_mode = 2
+end_cap_mode = 2
 
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Cushions" unique_id=1879943806]
-polygon = PackedVector2Array(620.2948, 621.3251, 630.70245, 600.33435, 1065.125, 600.3343, 1084.4752, 600.33435, 1101.1273, 619.226, 1104.2496, 969.7709, 629.6617, 964.5232)
+[node name="Cue" type="Sprite2D" parent="." unique_id=456626455]
+z_index = 6
+scale = Vector2(0.22, 0.7)
+texture = ExtResource("4_cue")
 
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Cushions" unique_id=1488752818]
-position = Vector2(-521.4223, 0)
-polygon = PackedVector2Array(611.96875, 619.226, 630.70245, 600.33435, 1076.1492, 600.33435, 1087.5974, 620.2755, 1085.516, 964.5232, 615.091, 963.4737)
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1982918988]
 
-[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Cushions" unique_id=1438067619]
-polygon = PackedVector2Array(1142.7579, 99.70588, 1120.9019, 120.696594, 1125.065, 561.5015, 1145.8802, 584.5913, 1642.3242, 584.5913, 1632.9574, 99.70588)
+[node name="TopStrip" type="ColorRect" parent="HUD" unique_id=19902201]
+offset_right = 1152.0
+offset_bottom = 76.0
+mouse_filter = 2
+color = Color(0.015, 0.025, 0.05, 0.92)
 
-[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Cushions" unique_id=21588927]
-polygon = PackedVector2Array(56.20121, 95.507744, 80.13876, 123.8452, 78.057236, 562.5511, 53.078922, 584.5913, -355.94098, 583.5418, -348.65564, 96.557274)
+[node name="TitleLabel" type="Label" parent="HUD" unique_id=1282933282]
+offset_left = 32.0
+offset_top = 13.0
+offset_right = 390.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 0.76, 0.22, 1)
+theme_override_font_sizes/font_size = 28
+text = "SNOOKER RUSH"
 
-[node name="Pockets" type="Area2D" parent="." unique_id=599087265]
+[node name="ScoreLabel" type="Label" parent="HUD" unique_id=919922039]
+offset_left = 447.0
+offset_top = 17.0
+offset_right = 673.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(0.88, 1, 0.9, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pockets" unique_id=1660027351]
-position = Vector2(-144.14572, -91.3096)
-shape = SubResource("RectangleShape2D_kr4a8")
+[node name="ChancesLabel" type="Label" parent="HUD" unique_id=347747316]
+offset_left = 705.0
+offset_top = 17.0
+offset_right = 863.0
+offset_bottom = 55.0
+theme_override_colors/font_color = Color(1, 0.82, 0.42, 1)
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pockets" unique_id=1472314180]
-position = Vector2(592.1942, -103.37931)
-shape = SubResource("RectangleShape2D_f45bh")
+[node name="LivesLabel" type="Label" parent="HUD" unique_id=1963527307]
+offset_left = 858.0
+offset_top = 20.0
+offset_right = 983.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 20
+horizontal_alignment = 1
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Pockets" unique_id=747484519]
-position = Vector2(1373.8074, -93.93344)
-shape = SubResource("RectangleShape2D_pg0oq")
+[node name="TimerLabel" type="Label" parent="HUD" unique_id=526184980]
+offset_left = 990.0
+offset_top = 11.0
+offset_right = 1125.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(1, 0.42, 0.27, 1)
+theme_override_font_sizes/font_size = 30
+horizontal_alignment = 2
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Pockets" unique_id=766628065]
-position = Vector2(-152.99219, 784.38934)
-shape = SubResource("RectangleShape2D_6yoaj")
+[node name="StatusLabel" type="Label" parent="HUD" unique_id=654710842]
+offset_left = 270.0
+offset_top = 589.0
+offset_right = 882.0
+offset_bottom = 631.0
+theme_override_colors/font_color = Color(1, 0.92, 0.66, 1)
+theme_override_font_sizes/font_size = 23
+horizontal_alignment = 1
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Pockets" unique_id=552038549]
-position = Vector2(593.33685, 796.07275)
-shape = SubResource("RectangleShape2D_qn2p0")
+[node name="PowerCaption" type="Label" parent="HUD" unique_id=685108229]
+offset_left = 23.0
+offset_top = 585.0
+offset_right = 196.0
+offset_bottom = 608.0
+theme_override_colors/font_color = Color(0.79, 0.87, 1, 1)
+theme_override_font_sizes/font_size = 16
+text = "HOLD TO POWER"
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Pockets" unique_id=978116333]
-position = Vector2(420.67215, 0)
-shape = SubResource("RectangleShape2D_2me32")
+[node name="PowerBar" type="ProgressBar" parent="HUD" unique_id=900577496]
+offset_left = 23.0
+offset_top = 611.0
+offset_right = 225.0
+offset_bottom = 632.0
+theme_override_styles/background = SubResource("StyleBarBackground")
+theme_override_styles/fill = SubResource("StyleBarFill")
+show_percentage = false
+
+[node name="StartPanel" type="Control" parent="." unique_id=906751125]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 329.0
+offset_top = 173.0
+offset_right = 823.0
+offset_bottom = 457.0
+
+[node name="Panel" type="Panel" parent="StartPanel" unique_id=1567746381]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StylePanel")
+
+[node name="Title" type="Label" parent="StartPanel/Panel" unique_id=1823371473]
+layout_mode = 0
+offset_top = 27.0
+offset_right = 494.0
+offset_bottom = 73.0
+theme_override_colors/font_color = Color(1, 0.76, 0.22, 1)
+theme_override_font_sizes/font_size = 32
+text = "SNOOKER RUSH"
+horizontal_alignment = 1
+
+[node name="Rules" type="Label" parent="StartPanel/Panel" unique_id=2045045815]
+layout_mode = 0
+offset_left = 38.0
+offset_top = 91.0
+offset_right = 456.0
+offset_bottom = 181.0
+theme_override_colors/font_color = Color(0.9, 0.96, 1, 1)
+theme_override_font_sizes/font_size = 18
+text = "Pot the target number of balls before time runs out.
+Hold LEFT CLICK or SPACE to build power, then release."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="StartButton" type="Button" parent="StartPanel/Panel" unique_id=1640213606]
+layout_mode = 0
+offset_left = 153.0
+offset_top = 205.0
+offset_right = 341.0
+offset_bottom = 255.0
+theme_override_font_sizes/font_size = 22
+text = "BREAK OFF!"

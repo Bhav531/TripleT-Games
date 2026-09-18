@@ -9,7 +9,7 @@ func _on_retry_pressed() -> void:
 	Global.minigames_done = 0
 	
 	
-	get_tree().change_scene_to_file("res://scenes/level.tscn")
+	get_tree().change_scene_to_file("res://scenes/settings_scene.tscn")
 	
 
 func _on_quit_pressed() -> void:

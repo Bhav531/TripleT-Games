@@ -6,4 +6,5 @@ var minigames_done: int = 0
 
 
 var difficulty: String = "Normal" 
-var music_enabled: bool = true    
+var music_enabled: bool = true
+var music_volume: float = 0.70
