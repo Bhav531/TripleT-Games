@@ -1,76 +1,205 @@
 # Triple-T Games
-A fast-paced, Tung Tung Sahur- themed, WarioWare-style 2D minigame rush where players must survive four intense, distinct micro-challenges - all built in Godot.
 
+A fast-paced, **Tung Tung Sahur-themed, WarioWare-style 2D minigame rush** where players must survive a sequence of intense, distinct micro-challenges, all built in **Godot 4.1**.
 <img width="1152" height="642" alt="image" src="https://github.com/user-attachments/assets/711831a7-3d6d-4eb6-8f5c-580b0365f6e2" />
+**[Play the Game!](https://bh4v-xy.itch.io/triple-t-games)**
 
-
-**Play the Game!(https://bh4v-xy.itch.io/triple-t-games)**
-
-Triple-T Games is a fast-paced survival rush where players are thrown into a series of rapid-fire microgames. You start with 5 lives. Between each round, a dynamic intermission screen counts down to the next challenge. If you lose all your lives, it's game over. Survive the gauntlet, and you win.
+Triple-T Games is a rapid-fire survival rush where players are thrown into a series of unpredictable microgames. You begin with **5 lives**, navigate through increasingly frantic challenges, and must react quickly to survive. Between each round, a dynamic intermission screen prepares you for the next challenge. Lose all your lives and the run ends. Survive the complete gauntlet and you win.
 
 ## Quick Start
-Want to just play the game? 
-- Head over to the **[Itch.io Live Demo]((https://bh4v-xy.itch.io/triple-t-games)** to play directly in your browser.
 
-## The Gauntlet (Features)
-The core loop consists of four distinct minigames, each testing a completely different player skill. The game seamlessly transitions between them without dropping a frame:
+Want to jump straight into the game?
 
-*   **Minigame 1: The Platformer Rush**
-    *   *Mechanic:* 2D physics-based platforming.
-    *   *Objective:* Navigate platforms using `CharacterBody2D` physics to collect 3 spawned items before the **4.67-second** timer expires.
-*   **Minigame 2: The Clicker**
-    *   *Mechanic:* High-speed UI interaction.
-    *   *Objective:* A test of mouse accuracy. Players must click and destroy 6 randomized UI targets within exactly 7 seconds. 
-*   **Minigame 3: Survival Pong**
-    *   *Mechanic:* Kinematic deflection and AI tracking.
-    *   *Objective:* Survive for 20 seconds against an AI paddle. If the CPU scores even a single point, the player loses a life.
-*   **Minigame 4: Tung Catcher**
-    *   *Mechanic:* Horizontal spatial tracking and dynamic spawning.
-    *   *Objective:* Tung icons spawn at random X-coordinates at the top of the screen every 2 seconds. The player must catch at least 6 out of 7 falling icons. Missing 2 instantly triggers a game over for that round.
- 
-### What's New
-**Settings Menu:** Custom difficulty selector (Easy, Normal, Hard) and a global Music Toggle.
+* Head over to the **[Itch.io Live Demo](https://bh4v-xy.itch.io/triple-t-games)** to play directly in your browser.
 
-**Dynamic Time Scaling:** Timer constraints and spawn pools scale dynamically according to chosen difficulty.
+---
 
-**Visual Polish & Juice:** Smooth Tween-driven animations, icon rotations, dynamic scaling, and custom UI entrance transitions.
+## The Gauntlet
 
-## Under the Hood (Architecture & Technical Depth)
-This project was built to be highly modular. Instead of a single massive scene, the game relies on isolated minigame scenes orchestrated by a global state manager. 
+The core gameplay loop consists of **five distinct minigames**, each designed around a different skill, mechanic, and style of interaction. The game seamlessly transitions between challenges while maintaining a fast and continuous pace.
 
-Here are the key technical implementations that make it work:
+### Minigame 1: The Platformer Rush
 
-### 1. Global State Management (Autoload)
-To keep the minigames completely decoupled from one another, the game uses Godot's Singleton (Autoload) pattern via a `Global.gd` script. 
-*   `Global.lives`: Tracks the player's remaining health across all scenes.
-*   `Global.minigames_done`: Acts as the master level index. 
+* **Mechanic:** 2D physics-based platforming.
+* **Objective:** Navigate platforms using `CharacterBody2D` physics and collect **3 spawned items** before the **4.67-second** timer expires.
+* **Technical Focus:** Character movement, collision handling, item spawning, and timed objectives.
 
-When a minigame concludes, it simply updates the Global state and routes the player back to the hub scene, completely resetting its own local memory.
+### Minigame 2: The Clicker
 
-### 2. The Dynamic Hub (`level_scene.tscn`)
-Rather than hardcoding transitions between Level 1, 2, and 3, a centralized hub scene handles all routing. 
-*   **Dynamic UI:** It reads `Global.lives` via a `match` statement to dynamically hide `TextureRect` life icons from an `HBoxContainer`.
-*   **Smart Routing:** After a 5-second asynchronous countdown (`await get_tree().create_timer(0.1).timeout`), it automatically concatenates the next scene path (e.g., `"res://scenes/minigame_" + str(Global.minigames_done) + ".tscn"`), verifying the file exists via `ResourceLoader` before transitioning.
+* **Mechanic:** High-speed UI interaction.
+* **Objective:** Test mouse accuracy and reaction speed by clicking and destroying **6 randomized UI targets** within exactly **7 seconds**.
+* **Technical Focus:** Dynamic UI generation, mouse input, target positioning, and countdown management.
 
-### 3. Safe Physics Transitions (`call_deferred`)
-A common pitfall in Godot is attempting to change scenes or free nodes while the physics engine is mid-calculation (e.g., exactly when a ball hits a score zone in Minigame 3). 
-*   To prevent engine crashes and undesired behavior during `_on_body_entered` callbacks, all scene transitions and critical node removals are pushed to the end of the frame using `call_deferred("_change_scene", target_path)`.
+### Minigame 3: Survival Pong
 
-### 4. Code-Driven Signal Connections
-In Minigame 4 (Tung Catcher), the falling objects (`FallingIcon` instances) are not placed in the editor. They are preloaded and instantiated purely via script.
-*   To avoid brittle UI dependencies, signals (`icon_caught` and `icon_missed`) are connected dynamically via code (`icon_instance.icon_caught.connect(_on_icon_caught)`).
-*   Collision detection uses Godot's Scene Groups (`is_in_group("player")`) to ensure the falling icons can identify the player regardless of how the Node tree is structured.
+* **Mechanic:** Kinematic deflection and AI tracking.
+* **Objective:** Survive for **20 seconds** against an AI-controlled paddle. If the CPU scores even a single point, the player loses a life.
+* **Technical Focus:** Paddle movement, ball physics, collision detection, AI tracking, and score zones.
 
-## How to Run it Locally
-Want to look at the node trees and scripts yourself?
+### Minigame 4: Tung Catcher
+
+* **Mechanic:** Horizontal spatial tracking and dynamic object spawning.
+* **Objective:** Tung icons spawn at random X-coordinates at the top of the screen every **2 seconds**. The player must catch at least **6 out of 7** falling icons.
+* **Failure Condition:** Missing **2 icons** instantly ends the round.
+* **Technical Focus:** Runtime instantiation, collision detection, dynamic signals, and scene groups.
+
+### Minigame 5: Snooker Rush
+
+* **Mechanic:** Physics-driven snooker with intelligent collision handling.
+* **Objective:** Complete the snooker challenge under pressure by accurately controlling the cue and interacting with the balls using realistic physical interactions.
+* **Technical Focus:** Built around **Godot's `RigidBody2D` physics and collision systems**, allowing balls to respond dynamically to impacts, momentum, and physical interactions.
+* **Physics Systems:** Smart collision handling and physics-body processes create responsive ball movement and realistic chain reactions across the table.
+
+The Snooker Rush introduces a more physically driven challenge to the gauntlet, contrasting with the reaction-based and UI-focused mechanics of the other minigames.
+
+---
+
+## Features
+
+### Five Unique Minigames
+
+Each challenge introduces a completely different gameplay mechanic, ranging from platforming and precision clicking to Pong survival, falling-object interception, and physics-based snooker.
+
+### Five-Life Survival System
+
+Players begin each run with **5 lives**. Losing a challenge costs a life, while reaching zero lives triggers the game-over sequence.
+
+### Level Skip System
+
+Players can **skip levels** when necessary, providing an alternative route through the gauntlet and allowing faster progression through individual challenges.
+
+### Music & Volume Controls
+
+A dedicated settings system allows players to control the game's audio experience.
+
+* **Global music toggle**
+* **Adjustable music volume**
+* Audio settings remain accessible through the Settings menu.
+
+### Difficulty Settings
+
+Choose between:
+
+* **Easy**
+* **Normal**
+* **Hard**
+
+Difficulty affects gameplay parameters such as timers, spawn pools, and challenge intensity.
+
+### Dynamic Time Scaling
+
+Challenge parameters dynamically adapt according to the selected difficulty, modifying timer constraints and spawning behaviour to create increasingly demanding runs.
+
+### Visual Polish & Juice
+
+The game uses Tween-driven animations and responsive UI effects to make transitions and interactions feel more dynamic.
+
+* Smooth Tween animations
+* Icon rotations
+* Dynamic scaling
+* UI entrance transitions
+* Animated intermission screens
+
+---
+
+## Under the Hood
+
+Triple-T Games was designed to be modular rather than relying on one enormous scene. Individual minigames exist as isolated scenes and are orchestrated through a centralized global state system.
+
+### 1. Global State Management
+
+The game uses Godot's **Singleton (Autoload)** architecture through `Global.gd`.
+
+* `Global.lives` tracks the player's remaining lives across scenes.
+* `Global.minigames_done` tracks progression through the minigame sequence.
+* Global settings manage gameplay and audio-related state.
+
+When a minigame concludes, the global state is updated and the player is routed back through the central hub before the next challenge begins.
+
+### 2. Dynamic Hub
+
+The `level_scene.tscn` scene functions as the central routing hub rather than hardcoding individual level transitions.
+
+* **Dynamic UI:** Reads `Global.lives` and updates the displayed life icons accordingly.
+* **Smart Routing:** Determines the next minigame dynamically and constructs its scene path.
+* **Resource Validation:** Uses `ResourceLoader` to verify that the requested scene exists before attempting to load it.
+* **Level Progression:** Supports the game's sequential progression and level-skipping functionality.
+
+### 3. Safe Physics Transitions
+
+A common Godot issue occurs when attempting to change scenes or remove nodes while the physics engine is actively processing a collision.
+
+For example, a ball may trigger a scoring zone while the physics engine is still calculating its current frame.
+
+To prevent unsafe modifications, critical scene transitions and node removals are deferred using:
+
+```gdscript
+call_deferred("_change_scene", target_path)
+```
+
+This ensures that physics callbacks can complete before the scene tree is modified.
+
+### 4. Physics-Based Snooker
+
+The Snooker Rush minigame makes extensive use of Godot's physics system.
+
+* `RigidBody2D` objects handle ball movement.
+* Collision bodies detect impacts between balls and the environment.
+* Physics processing determines how momentum is transferred between objects.
+* Collision interactions allow multiple balls to react naturally to a single impact.
+
+This creates a physics-driven minigame where the outcome of one collision can influence subsequent interactions across the table.
+
+### 5. Code-Driven Signal Connections
+
+In Minigame 4, falling objects are not manually placed into the scene.
+
+Instead, `FallingIcon` instances are preloaded and instantiated directly through code.
+
+Signals such as:
+
+```gdscript
+icon_instance.icon_caught.connect(_on_icon_caught)
+```
+
+are connected dynamically at runtime.
+
+This reduces dependence on rigid scene-tree structures and makes the spawning system easier to modify.
+
+### 6. Scene Groups for Collision Detection
+
+Collision detection in Minigame 4 uses Godot's **Scene Groups**.
+
+```gdscript
+is_in_group("player")
+```
+
+This allows falling objects to identify the player without relying on a specific node path, making the system more modular and resilient to changes in the scene hierarchy.
+
+---
+
+## How to Run Locally
+
+Want to inspect the scenes, node trees, scripts, and physics systems yourself?
 
 1. Install **Godot Engine 4.x**.
 2. Clone this repository:
-   ```bash
-   git clone (github.com/Bhav531/TripleT-Games)
+
+```bash
+git clone https://github.com/Bhav531/TripleT-Games
+```
+
+3. Open the project in Godot.
+4. Run the main scene.
+
+---
 
 ## Credits
-# Coding Editor : Godot 4.1
-# Developer : Bhav Kartik Jindal
-# Images : Google
-# (No generative AI was used)
+
+**Coding Editor:** Godot 4.1
+
+**Developer:** Bhav Kartik Jindal
+
+**Images:** Google
+
+**Generative AI:** No generative AI was used.
